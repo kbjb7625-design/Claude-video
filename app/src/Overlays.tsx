@@ -6,6 +6,8 @@ import {
 	spring,
 	useCurrentFrame,
 	useVideoConfig,
+	Img,
+	staticFile,
 } from 'remotion';
 import {DARK, SAFE, SAFE_W, YELLOW} from './theme';
 
@@ -150,6 +152,17 @@ export const TitleCard: React.FC<{dur: number}> = ({dur}) => {
 	return (
 		<AbsoluteFill style={{opacity: out}}>
 			<div style={{position: 'absolute', top: SAFE.top + 10, left: SAFE.left, width: SAFE_W}}>
+				<div style={{display: 'flex', alignItems: 'center', gap: 16}}>
+				<Img
+					src={staticFile('logo.png')}
+					style={{
+						width: 84,
+						height: 84,
+						opacity: tag,
+						transform: `scale(${tag}) rotate(${(1 - tag) * -180}deg)`,
+						filter: 'drop-shadow(0 4px 12px rgba(0,0,0,0.5))',
+					}}
+				/>
 				<div
 					style={{
 						display: 'inline-flex',
@@ -168,6 +181,7 @@ export const TitleCard: React.FC<{dur: number}> = ({dur}) => {
 					}}
 				>
 					SESI BALL MASTERY
+				</div>
 				</div>
 				<div style={{display: 'flex', alignItems: 'center', marginTop: 12}}>
 					<div
@@ -358,13 +372,13 @@ export const Outro: React.FC<{dur: number}> = ({dur}) => {
 			<AbsoluteFill style={{opacity: fadeAll}}>
 				<div style={{position: 'absolute', top: SAFE.top + 10, left: SAFE.left, width: SAFE_W}}>
 					<div style={{display: 'flex', alignItems: 'center', gap: 22}}>
-						<div style={{transform: `scale(${logo}) rotate(${(1 - logo) * 360}deg)`}}>
-							<Ball size={110} spin={frame * 4} />
+						<div style={{transform: `scale(${logo}) rotate(${(1 - logo) * -200}deg)`, filter: 'drop-shadow(0 8px 22px rgba(0,0,0,0.5))'}}>
+							<Img src={staticFile('logo.png')} style={{width: 190, height: 190, display: 'block'}} />
 						</div>
 						<div
 							style={{
 								fontFamily: 'Anton',
-								fontSize: 190,
+								fontSize: 170,
 								lineHeight: 0.95,
 								color: YELLOW,
 								textShadow: shadow,
